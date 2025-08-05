@@ -1,99 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Desktop Layout</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
 
-    .container {
-      display: grid;
-      grid-template-areas: 
-        "header menu"
-        "hero   hero"
-        "main   image"
-        "main   extra"
-        "banner banner";
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      gap: 5px;
-      height: 100vh;
-      padding: 10px;
-      box-sizing: border-box;
-    }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main {
+            display: flex;
+            width: 100%;
+            height: 10vh;
+        }
 
-    .box {
-      padding: 20px;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
+        .header {
+            background-color: #dc2626; 
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .menu {
+            background-color: #fcd34d;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #374151;
+            font-weight: 700;
+        }
+        
+        .hero {
+            background-color: #16a34a; 
+            width: 100%;
+            height: 50vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .mid {
+            height: 30vh;
+            width: 100%;
+            display: flex;
+        }
 
-    .header { grid-area: header; background: #111; }
-    .menu   { grid-area: menu; background: #555; }
-    .hero   { grid-area: hero; background: #777; }
-    .main   { grid-area: main; background: #000; }
-    .image  { grid-area: image; background: #ddd; color: #000; }
-    .extra  { grid-area: extra; background: #999; }
-    .banner { grid-area: banner; background: #ccc; color: #000; }
+        .main-left {
+            background-color: #ef4444; 
+            height: 100%;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .main-right {
+            height: 100%;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Tablet view */
-    @media (max-width: 1024px) and (min-width: 601px) {
-      .container {
-        grid-template-areas: 
-          "header"
-          "menu"
-          "hero"
-          "main"
-          "image"
-          "extra"
-          "banner";
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, auto);
-        height: auto;
-      }
-    }
+        .main-right-top {
+            height: 50%;
+            width: 100%;
+            background-color: #7c3aed; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .main-right-bottom {
+            height: 50%;
+            width: 100%;
+            background-color: #2563eb; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .bottom {
+            height: 10vh;
+            width: 100%;
+            background-color: #06b6d4; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
 
-    /* Mobile view */
-    @media (max-width: 600px) {
-      .container {
-        grid-template-areas: 
-          "header"
-          "menu"
-          "hero"
-          "main"
-          "image"
-          "extra"
-          "banner";
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, auto);
-        height: auto;
-        padding: 5px;
-      }
-      .box {
-        padding: 12px;
-        font-size: 1rem;
-      }
-    }
-  </style>
+      
+        @media (max-width: 768px) {
+            .container {
+                height: auto;
+            }
+            .main, .mid {
+                flex-direction: column;
+            }
+            .header, .menu, .main-left, .main-right {
+                width: 100%;
+            }
+            .main-left {
+                height: 25vh;
+            }
+            .main-right-top, .main-right-bottom {
+                height: 20vh;
+            }
+            .hero {
+                height: 40vh;
+            }
+            .bottom {
+                height: 15vh;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="container">
-    <div class="box header">HEADER</div>
-    <div class="box menu">MENU</div>
-    <div class="box hero">HERO</div>
-    <div class="box main">MAIN</div>
-    <div class="box image">IMAGE</div>
-    <div class="box extra">EXTRA</div>
-    <div class="box banner">BANNER</div>
-  </div>
-
+    <div class="container">
+        <div class="main">
+            <div class="header">HEADER</div>
+            <div class="menu">MENU</div>
+        </div>
+        <div class="hero">HERO</div>
+        <div class="mid">
+            <div class="main-left">MAIN</div>
+            <div class="main-right">
+                <div class="main-right-top">IMAGE</div>
+                <div class="main-right-bottom">EXTRA</div>
+            </div>
+        </div>
+        <div class="bottom">BANNER</div>
+    </div>
 </body>
 </html>
